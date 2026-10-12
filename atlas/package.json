@@ -11,7 +11,10 @@
     "build": "node scripts/run-framework.mjs build",
     "start": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "predev": "node scripts/prepare-local-db.mjs",
+    "db:local": "node scripts/prepare-local-db.mjs",
+    "test:load": "node scripts/test-load.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -24,6 +27,8 @@
     "drizzle-orm": "0.45.2",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
     "lucide-react": "^1.31.0",
     "next": "16.2.6",
     "next-themes": "^0.4.6",
